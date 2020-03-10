@@ -33,7 +33,7 @@ class BasicBlock(nn.Module):
         out = self.bn2(self.conv2(out))
         out += self.shortcut(x)
         out = F.relu(out)
-	out = nn.DropOut2d(0.1)(out)
+        out = nn.DropOut2d(0.1)(out)
 	return out
 
 
