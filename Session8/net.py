@@ -7,6 +7,8 @@ Reference:
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torchsummary
+from torchsummary import summary
 
 
 class BasicBlock(nn.Module):
