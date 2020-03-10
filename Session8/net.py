@@ -33,8 +33,8 @@ class BasicBlock(nn.Module):
         out = self.bn2(self.conv2(out))
         out += self.shortcut(x)
         out = F.relu(out)
-	out = nn.Dropout2d(0.1)
-        return out
+	out = nn.DropOut2d(0.1)
+	return out
 
 
 class Bottleneck(nn.Module):
