@@ -1,7 +1,7 @@
 Group Members : Deepak Gowtham, Bikash Ranjan Bhoi
 
 
-# CIFAR10 With use of Regular, Dilated, Depthwise Separable Convolutions
+# CIFAR10 Training using ResNet34
 
 ## Observation
 Best Test Accuracy 84.05%
