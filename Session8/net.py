@@ -34,7 +34,7 @@ class BasicBlock(nn.Module):
         out += self.shortcut(x)
         out = F.relu(out)
         out = nn.DropOut2d(0.1)(out)
-	return out
+        return out
 
 
 class Bottleneck(nn.Module):
