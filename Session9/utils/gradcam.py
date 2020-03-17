@@ -215,7 +215,7 @@ def deprocess_image(img):
     return np.uint8(img*255)
 
 
-def grad_cam_img(img,model,layer_name):
+def grad_cam_img(img, model, layer_name):
 
     args = get_args()
 
