@@ -1,5 +1,6 @@
 import albumentations
 from albumentations import *
+from albumentations import Compose
 from albumentations.pytorch import ToTensor
 
 class TrainAlbumentation():
