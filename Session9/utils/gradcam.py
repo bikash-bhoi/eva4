@@ -1,5 +1,6 @@
 import os
 import PIL
+import torch
 import numpy as np
 from torchvision import transforms
 from torchvision.utils import make_grid, save_image
@@ -7,8 +8,6 @@ from torchvision.utils import make_grid, save_image
 from gradcam.utils import visualize_cam
 from gradcam import GradCAM, GradCAMpp
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-
-device=has_cuda()
 
 def grad_cam(img, model, layer):
 	configs = [dict(model_type='resnet', arch=model, layer_name=layer)]
