@@ -24,7 +24,8 @@ def grad_cam(img, model, layer):
 	
 	torch_img = transforms.Compose([transforms.ToTensor()])(img).to(device)
 	normed_torch_img = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])(torch_img)[None]
-    cams = [[cls.from_config(**config) for cls in (GradCAM, GradCAMpp)] for config in configs]    
+    
+	cams = [[cls.from_config(**config) for cls in (GradCAM, GradCAMpp)] for config in configs]    
 
     images = []
     for gradcam, gradcam_pp in cams:
