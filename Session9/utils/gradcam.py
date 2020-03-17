@@ -1,17 +1,11 @@
 import os
 import PIL
 import numpy as np
-# import torch
-# import torch.nn.functional as F
-# import torchvision.models as models
 from torchvision import transforms
 from torchvision.utils import make_grid, save_image
 
 from gradcam.utils import visualize_cam
 from gradcam import GradCAM, GradCAMpp
-from images import *
-from models import *
-from display import *
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 device=has_cuda()
