@@ -49,8 +49,8 @@ class ModelOutputs():
 
 
 def preprocess_image(img):
-    means = [0.5, 0.5, 0.5]
-    stds = [0.5, 0.5, 0.5]
+    means = [0.49139968, 0.48215841, 0.44653091]
+    stds = [0.24703223, 0.24348513, 0.26158784]
 
     preprocessed_img = img.copy()[:, :, ::-1]
     for i in range(3):
@@ -225,7 +225,7 @@ def grad_cam_img(img, model, layer_name):
     grad_cam = GradCam(model=model, \
                        target_layer_names=layer_name, use_cuda=args.use_cuda)
 
-    img = np.float32(cv2.resize(img, (224, 224))) / 255
+    img = np.float32(img) / 255
     input = preprocess_image(img)
 
     # If None, returns the map for the highest scoring category.
