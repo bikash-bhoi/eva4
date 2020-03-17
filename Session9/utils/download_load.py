@@ -11,7 +11,7 @@ import numpy as np
 import torchvision
 import torchsummary
 from torchsummary import summary
-from data_albument import TrainAlbumentation,TestAlbumentation
+from utils.data_albument import TrainAlbumentation,TestAlbumentation
 
 
 	
