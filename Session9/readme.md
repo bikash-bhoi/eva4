@@ -1,7 +1,7 @@
 Group Members : Deepak Gowtham, Bikash Ranjan Bhoi
 
 
-# CIFAR10 With use of ResNet18 and Data Albummentation and Gradcam implementation
+# CIFAR10 With use of ResNet18 and Data Albumentation and Gradcam implementation
 
 ## Observation
 Best Test Accuracy 88.75%
