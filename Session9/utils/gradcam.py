@@ -223,7 +223,7 @@ def grad_cam_img(img, model, layer_name):
     # feature method, and a classifier method,
     # as in the VGG models in torchvision.
     grad_cam = GradCam(model=model, \
-                       target_layer_names=[layer_name], use_cuda=args.use_cuda)
+                       target_layer_names=layer_name, use_cuda=args.use_cuda)
 
     img = np.float32(cv2.resize(img, (224, 224))) / 255
     input = preprocess_image(img)
