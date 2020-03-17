@@ -11,6 +11,7 @@ import numpy as np
 import torchvision
 import torchsummary
 from torchsummary import summary
+from data_albument import TrainAlbumentation,TestAlbumentation
 
 
 	
@@ -25,9 +26,10 @@ def download_load():
 
 	if cuda:
 		torch.cuda.manual_seed(SEED)
-
-	transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-	transform_train = transforms.Compose([transforms.RandomCrop(32, padding=4),transforms.RandomHorizontalFlip(),transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+	transform_train = TrainAlbumentation()
+	transform = TestAlbumentation()
+	#transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+	#transform_train = transforms.Compose([transforms.RandomCrop(32, padding=4),transforms.RandomHorizontalFlip(),transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 	dataloader_args = dict(shuffle=True, batch_size=64, num_workers=4, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
 
