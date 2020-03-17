@@ -1,13 +1,17 @@
+import albumentations
+from albumentations import *
+from albumentations.pytorch import ToTensor
+
 class TrainAlbumentation():
 	def __init__(self):
 		self.train_trans = Compose([
 		  HorizontalFlip(),
-      Rotate((-10.0, 10.0)),
-		  Normalize(
+		Rotate((-10.0, 10.0)),
+		Normalize(
 			mean=[0.485,0.456,0.406],
 			std=[0.229,0.224,0.225],
-		  ),
-		  ToTensor()
+		),
+		ToTensor()
 		])
 
 	def __call__(self, im):
@@ -18,11 +22,11 @@ class TrainAlbumentation():
 class TestAlbumentation():
 	def __init__(self):
 		self.train_trans = Compose([
-		  Normalize(
+		Normalize(
 			mean=[0.485,0.456,0.406],
 			std=[0.229,0.224,0.225],
-		  ),
-		  ToTensor()
+		),
+		ToTensor()
 		])
 
 	def __call__(self, im):
