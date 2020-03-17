@@ -49,8 +49,8 @@ class ModelOutputs():
 
 
 def preprocess_image(img):
-    means = [0.485, 0.456, 0.406]
-    stds = [0.229, 0.224, 0.225]
+    means = [0.5, 0.5, 0.5]
+    stds = [0.5, 0.5, 0.5]
 
     preprocessed_img = img.copy()[:, :, ::-1]
     for i in range(3):
@@ -213,3 +213,33 @@ def deprocess_image(img):
     img = img + 0.5
     img = np.clip(img, 0, 1)
     return np.uint8(img*255)
+
+
+def grad_cam_img(img):
+
+    args = get_args()
+
+    # Can work with any model, but it assumes that the model has a
+    # feature method, and a classifier method,
+    # as in the VGG models in torchvision.
+    grad_cam = GradCam(model=models.vgg19(pretrained=True), \
+                       target_layer_names=["35"], use_cuda=args.use_cuda)
+
+    img = np.float32(cv2.resize(img, (224, 224))) / 255
+    input = preprocess_image(img)
+
+    # If None, returns the map for the highest scoring category.
+    # Otherwise, targets the requested index.
+    target_index = None
+    mask = grad_cam(input, target_index)
+
+    show_cam_on_image(img, mask)
+
+    gb_model = GuidedBackpropReLUModel(model=models.vgg19(pretrained=True), use_cuda=args.use_cuda)
+    gb = gb_model(input, index=target_index)
+    gb = gb.transpose((1, 2, 0))
+    cam_mask = cv2.merge([mask, mask, mask])
+    cam_gb = deprocess_image(cam_mask*gb)
+    gb = deprocess_image(gb)
+
+    return gb, cam_gb
