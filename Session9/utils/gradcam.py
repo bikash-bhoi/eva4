@@ -215,15 +215,15 @@ def deprocess_image(img):
     return np.uint8(img*255)
 
 
-def grad_cam_img(img):
+def grad_cam_img(img,model,layer_name):
 
     args = get_args()
 
     # Can work with any model, but it assumes that the model has a
     # feature method, and a classifier method,
     # as in the VGG models in torchvision.
-    grad_cam = GradCam(model=models.vgg19(pretrained=True), \
-                       target_layer_names=["35"], use_cuda=args.use_cuda)
+    grad_cam = GradCam(model=model, \
+                       target_layer_names=[layer_name], use_cuda=args.use_cuda)
 
     img = np.float32(cv2.resize(img, (224, 224))) / 255
     input = preprocess_image(img)
@@ -235,7 +235,7 @@ def grad_cam_img(img):
 
     show_cam_on_image(img, mask)
 
-    gb_model = GuidedBackpropReLUModel(model=models.vgg19(pretrained=True), use_cuda=args.use_cuda)
+    gb_model = GuidedBackpropReLUModel(model=model, use_cuda=args.use_cuda)
     gb = gb_model(input, index=target_index)
     gb = gb.transpose((1, 2, 0))
     cam_mask = cv2.merge([mask, mask, mask])
