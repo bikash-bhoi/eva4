@@ -81,6 +81,6 @@ def test(model, device, test_loader):
     print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
         test_loss, correct, len(test_loader.dataset),
         100. * correct / len(test_loader.dataset)))
-    test_a=100. * correct / len(test_loader.dataset)
+    test_accuracy=100. * (correct / len(test_loader.dataset))
     test_acc_l1.append(100. * correct / len(test_loader.dataset))
-    return test_a
+    return test_accuracy
