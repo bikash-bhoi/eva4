@@ -7,12 +7,13 @@ import numpy as np
 class TrainAlbumentation():
 	def __init__(self):
 		self.train_trans = Compose([
-		  HorizontalFlip(),
+		HorizontalFlip(),
 		Rotate((-10.0, 10.0)),
 		Normalize(
 			mean=[0.485,0.456,0.406],
 			std=[0.229,0.224,0.225],
 		),
+		Cutout(num_holes=4, max_h_size=4, max_w_size=4, fill_value=0, always_apply=False, p=0.5),
 		ToTensor()
 		])
 
