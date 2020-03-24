@@ -13,7 +13,7 @@ class TrainAlbumentation():
 			mean=[0.485,0.456,0.406],
 			std=[0.229,0.224,0.225],
 		),
-		Cutout(num_holes=4, max_h_size=4, max_w_size=4, fill_value=0, always_apply=False, p=0.5),
+		Cutout(num_holes=4, max_h_size=4, max_w_size=4, always_apply=False, p=0.5),
 		ToTensor()
 		])
 
