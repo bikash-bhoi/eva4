@@ -86,20 +86,16 @@ def test(model, device, test_loader):
     return test_acc_l1[-1]
 
 def predict(model, device, test_loader):
-	pred_index=[]
-	target_index = []
-
+	pred=[]
 	model.eval()
 
 	with torch.no_grad():
 		for data, target in test_loader:
 			data, target = data.to(device), target.to(device)
 			output = model(data)
-			
+
 			pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
 			#incorrect_pred.append(pred.eq(target.view_as(pred)))
 			pred_index +=list(pred.squeeze().cpu().numpy())
-			target_index +=list(target.squeeze().cpu().numpy())
 
-	return pred_index,target_index
- 
+	return pred
