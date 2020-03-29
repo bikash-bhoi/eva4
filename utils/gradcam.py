@@ -4,6 +4,8 @@ import torch
 import numpy as np
 from torchvision import transforms
 from torchvision.utils import make_grid, save_image
+import random
+import matplotlib.pyplot as plt
 
 from gradcam.utils import visualize_cam
 from gradcam import GradCAM, GradCAMpp
@@ -31,3 +33,19 @@ def grad_cam(img, model, layer):
 		images.extend([torch_img.cpu(), heatmap, heatmap_pp, result, result_pp])
 
 	return images
+
+
+def gradcam_plot(layer,model,idx_list,count,testset,classes):
+	
+	for idx,pred,label in random.sample(idx_list, count):
+		img=testset.data[idx]
+		cam = grad_cam(img, model, layer)
+		cam = torch.stack(cam)[4]
+		cam = np.transpose(cam, (1, 2, 0))
+		
+		fig,ax = plt.subplots(1,2)
+		fig.suptitle('\nIndex position : {}    Test Label : {}    Pred label : {}'.format(idx,classes[label],classes[pred]))
+		ax[0].set_title('Actual Image')
+		ax[1].set_title('Gradcam')
+		ax[0].imshow(testset.data[idx])
+		ax[1].imshow(cam)
