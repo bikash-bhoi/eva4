@@ -104,6 +104,6 @@ def get_misclassified(pred,labels):
 	misclassified = []
 	correct = []
 	for i in (range(len(pred))):
-		if pred[i] != labels[i] : missclassified.append((i,pred[i],labels[i]))
+		if pred[i] != labels[i] : misclassified.append((i,pred[i],labels[i]))
 		else : correct.append((i,pred[i],labels[i]))
 	return correct,	misclassified
