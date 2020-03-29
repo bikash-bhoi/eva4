@@ -99,3 +99,11 @@ def predict(model, device, test_loader):
 			pred_all +=list(pred.squeeze().cpu().numpy())
 
 	return pred_all
+
+def get_misclassified(pred,labels):
+	misclassified = []
+	correct = []
+	for i in (range(len(pred))):
+		if pred[i] != label[i] : missclassified.append((i,pred[i],label[i]))
+		else : correct.append((i,pred[i],label[i]))
+	return correct,	misclassified
