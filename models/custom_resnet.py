@@ -1,3 +1,7 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
 class cust_resnet(nn.Module):
 	def __init__(self):
 		super(cust_resnet, self).__init__()
