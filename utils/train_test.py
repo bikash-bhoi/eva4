@@ -94,7 +94,7 @@ def fit(model, device, train_loader, test_loader, optimizer, scheduler, num_epoc
 		print(f'Epoch: {epoch} Learning_Rate {curr_lr}')
 		train_acc1 = train(model, device, train_loader, optimizer, epoch)
 		test_acc1 = test(model, device, test_loader)
-		print('Test accuracy:', test_acc1)
+		#print('Test accuracy:', test_acc1)
 		if "ReduceLROnPlateau" in  str(type(scheduler)):
 			scheduler.step(test_acc1)
 		elif "OneCycleLR" in  str(type(scheduler)):
