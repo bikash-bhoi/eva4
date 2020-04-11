@@ -99,17 +99,6 @@ def fit(model, device, train_loader, test_loader, optimizer, scheduler, num_epoc
 			scheduler.step(test_acc1)
 		elif "OneCycleLR" in  str(type(scheduler)):
 			scheduler.step()
-
-
-for epoch in range(1, 25):
-    curr_lr=optimizer.param_groups[0]['lr']
-    lrs.append(curr_lr)
-    print(f'Epoch: {epoch} Learning_Rate {curr_lr}')
-    train_acc1 = train(model, device, train_loader, optimizer, epoch)
-    test_acc1 = test(model, device, test_loader)
-    print('Test acc:', test_acc1)
-    scheduler.step()
-
 	
 	
 def predict(model, device, test_loader):
