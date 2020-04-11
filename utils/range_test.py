@@ -1,5 +1,6 @@
 from utils.train_test import train , test
 import matplotlib.pyplot as plt
+import torch.optim as optim
 
 def lr_range_test(lrs,model,device,train_loader, test_loader):
 	train_acc=[]
