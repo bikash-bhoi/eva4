@@ -9,7 +9,7 @@ def lr_range_test(lrs,model,device,train_loader, test_loader):
 
 
 	for lr in lrs:
-		model = custom_resnet().to(device)
+		model = cust_resnet().to(device)
 		optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9,weight_decay=0.0005)
 		optimizer.param_groups[0]['lr'] = lr
 		print('LR:',optimizer.param_groups[0]['lr'])
