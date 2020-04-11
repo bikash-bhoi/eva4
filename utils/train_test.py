@@ -89,7 +89,7 @@ def test(model, device, test_loader):
 
 def fit(model, device, train_loader, test_loader, optimizer, scheduler, num_epoch):
 	
-	for i in range(1,num_epoch+1):
+	for epoch in range(1,num_epoch+1):
 		curr_lr=optimizer.param_groups[0]['lr']
 		print(f'Epoch: {epoch} Learning_Rate {curr_lr}')
 		train_acc1 = train(model, device, train_loader, optimizer, epoch)
