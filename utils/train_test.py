@@ -87,6 +87,37 @@ def test(model, device, test_loader):
 	test_acc_l1.append(100. * correct / len(test_loader.dataset))
 	return test_acc_l1[-1]
 
+def fit(model, device, train_loader, test_loader, optimizer, scheduler, num_epoch):
+	
+	for i in range(1,num_epoch+1):
+		curr_lr=optimizer.param_groups[0]['lr']
+		print(f'Epoch: {epoch} Learning_Rate {curr_lr}')
+		train_acc1 = train(model, device, train_loader, optimizer, epoch)
+		test_acc1 = test(model, device, test_loader)
+		print('Test accuracy:', test_acc1)
+		if "ReduceLROnPlateau" in  str(type(scheduler)):
+			scheduler.step(test_acc1)
+		elif "OneCycleLR" in  str(type(scheduler)):
+			scheduler.step()
+			
+	
+device= 'cuda' if torch.cuda.is_available() else 'cpu'
+model = cust_resnet().to(device)
+optimizer = optim.SGD(model.parameters(), lr=0.01,  momentum=0.9)
+scheduler = OneCycleLR(optimizer, max_lr=0.03,  total_steps=24,pct_start=0.2083, final_div_factor=1, div_factor=10)
+lrs=[]
+
+for epoch in range(1, 25):
+    curr_lr=optimizer.param_groups[0]['lr']
+    lrs.append(curr_lr)
+    print(f'Epoch: {epoch} Learning_Rate {curr_lr}')
+    train_acc1 = train(model, device, train_loader, optimizer, epoch)
+    test_acc1 = test(model, device, test_loader)
+    print('Test acc:', test_acc1)
+    scheduler.step()
+
+	
+	
 def predict(model, device, test_loader):
 	pred_all=[]
 	model.eval()
@@ -109,3 +140,5 @@ def get_misclassified(pred,labels):
 		if pred[i] != labels[i] : misclassified.append((i,pred[i],labels[i]))
 		else : correct.append((i,pred[i],labels[i]))
 	return correct,	misclassified
+
+	
