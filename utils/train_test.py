@@ -99,13 +99,7 @@ def fit(model, device, train_loader, test_loader, optimizer, scheduler, num_epoc
 			scheduler.step(test_acc1)
 		elif "OneCycleLR" in  str(type(scheduler)):
 			scheduler.step()
-			
-	
-device= 'cuda' if torch.cuda.is_available() else 'cpu'
-model = cust_resnet().to(device)
-optimizer = optim.SGD(model.parameters(), lr=0.01,  momentum=0.9)
-scheduler = OneCycleLR(optimizer, max_lr=0.03,  total_steps=24,pct_start=0.2083, final_div_factor=1, div_factor=10)
-lrs=[]
+
 
 for epoch in range(1, 25):
     curr_lr=optimizer.param_groups[0]['lr']
