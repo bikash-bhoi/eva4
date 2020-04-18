@@ -61,7 +61,7 @@ def train(model, device, train_loader, optimizer, epoch,criterion= nn.NLLLoss())
 	return train_acc[-1]
 	
 
-def test(model, device, test_loader,criterion = nn.NLLLoss()):
+def test(model, device, test_loader,criterion = F.nll_loss):
 	test_losses_l1 = []
 	test_acc_l1 = []
 	model.eval()
