@@ -1,6 +1,7 @@
 import torch, time, copy, sys, os
 import matplotlib.pyplot as plt
 from livelossplot import PlotLosses
+from tqdm import tqdm
 
 def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optimizer, num_epochs=5, scheduler=None):
     if not os.path.exists('models/'+str(output_path)):
@@ -21,6 +22,7 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
                 if scheduler != None:
                     scheduler.step()
                 model.train()  # Set model to training mode
+				pbar = tqdm(train_loader)
             else:
                 model.eval()   # Set model to evaluate mode
 
@@ -50,10 +52,10 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
                 # statistics
                 running_loss += loss.item() * inputs.size(0)
                 running_corrects += torch.sum(preds == labels.data)
-                print("\rIteration: {}/{}, Loss: {}.".format(i+1, len(dataloaders[phase]), loss.item() * inputs.size(0)), end="")
+                #print("\rIteration: {}/{}, Loss: {}.".format(i+1, len(dataloaders[phase]), loss.item() * inputs.size(0)), end="")
 
 #                 print( (i+1)*100. / len(dataloaders[phase]), "% Complete" )
-                sys.stdout.flush()
+                pbar.set_description(desc= f'Loss={running_loss} Batch_id={i} ')
                 
                 
             epoch_loss = running_loss / dataset_sizes[phase]
@@ -81,7 +83,7 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
             'val_accuracy': val_acc
         })
                 
-        liveloss.draw()
+        #liveloss.draw()
         print('Train Loss: {:.4f} Acc: {:.4f}'.format(avg_loss, t_acc))
         print(  'Val Loss: {:.4f} Acc: {:.4f}'.format(val_loss, val_acc))
         print()
