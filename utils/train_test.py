@@ -15,7 +15,7 @@ import torch
 from tqdm import tqdm
 
 
-def train(model, device, train_loader, optimizer, epoch):
+def train(model, device, train_loader, optimizer, epoch,criterion= nn.NLLLoss()):
 	train_losses = []
 	train_acc = []
 
@@ -23,7 +23,8 @@ def train(model, device, train_loader, optimizer, epoch):
 	pbar = tqdm(train_loader)
 	correct = 0
 	processed = 0
-	criterion= nn.NLLLoss().to(device)
+	criterion=criterion.to(device)
+	
 	for batch_idx, (data, target) in enumerate(pbar):
 		# get samples
 		data, target = data.to(device), target.to(device)
@@ -60,7 +61,7 @@ def train(model, device, train_loader, optimizer, epoch):
 	return train_acc[-1]
 	
 
-def test(model, device, test_loader):
+def test(model, device, test_loader,criterion = nn.NLLLoss()):
 	test_losses_l1 = []
 	test_acc_l1 = []
 	model.eval()
@@ -73,7 +74,7 @@ def test(model, device, test_loader):
 			output = model(data)
 			
 
-			test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
+			test_loss += criterion(output, target, reduction='sum').item()  # sum up batch loss
 			pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
 			correct += pred.eq(target.view_as(pred)).sum().item()
 
