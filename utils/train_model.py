@@ -19,7 +19,7 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
 		# Each epoch has a training and validation phase
 		for phase in ['train', 'val']:
 			if phase == 'train':
-				pbar = tqdm(dataloaders[phase])
+				
 				if scheduler != None:
 					scheduler.step()
 				model.train()  # Set model to training mode
@@ -31,6 +31,7 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
 			running_corrects = 0
 
 			# Iterate over data.
+			pbar = tqdm(dataloaders[phase])
 			for i,(inputs, labels) in enumerate(pbar):
 				inputs = inputs.to(device)
 				labels = labels.to(device)
