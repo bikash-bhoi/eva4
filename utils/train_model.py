@@ -56,8 +56,7 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
 				#print("\rIteration: {}/{}, Loss: {}.".format(i+1, len(dataloaders[phase]), loss.item() * inputs.size(0)), end="")
 
 #				 print( (i+1)*100. / len(dataloaders[phase]), "% Complete" )
-				if phase == 'train':
-					pbar.set_description(desc= f'Loss={running_loss} Batch_id={i} ')
+				pbar.set_description(desc= f'Loss={loss.item()} Batch_id={i} ')
 				
 				
 			epoch_loss = running_loss / dataset_sizes[phase]
