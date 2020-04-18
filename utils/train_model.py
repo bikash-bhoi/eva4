@@ -19,18 +19,19 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
 		# Each epoch has a training and validation phase
 		for phase in ['train', 'val']:
 			if phase == 'train':
-				pbar = tqdm(train_loader)
+				pbar = tqdm(dataloaders[phase])
 				if scheduler != None:
 					scheduler.step()
 				model.train()  # Set model to training mode
 			else:
+				pbar = dataloaders[phase]
 				model.eval()   # Set model to evaluate mode
 
 			running_loss = 0.0
 			running_corrects = 0
 
 			# Iterate over data.
-			for i,(inputs, labels) in enumerate(dataloaders[phase]):
+			for i,(inputs, labels) in enumerate(pbar):
 				inputs = inputs.to(device)
 				labels = labels.to(device)
 
@@ -55,7 +56,8 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
 				#print("\rIteration: {}/{}, Loss: {}.".format(i+1, len(dataloaders[phase]), loss.item() * inputs.size(0)), end="")
 
 #				 print( (i+1)*100. / len(dataloaders[phase]), "% Complete" )
-				pbar.set_description(desc= f'Loss={running_loss} Batch_id={i} ')
+				if phase == 'train':
+					pbar.set_description(desc= f'Loss={running_loss} Batch_id={i} ')
 				
 				
 			epoch_loss = running_loss / dataset_sizes[phase]
