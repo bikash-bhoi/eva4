@@ -22,7 +22,7 @@ def train_model(output_path, model, dataloaders, dataset_sizes, criterion, optim
                 if scheduler != None:
                     scheduler.step()
                 model.train()  # Set model to training mode
-				pbar = tqdm(train_loader)
+                pbar = tqdm(train_loader)
             else:
                 model.eval()   # Set model to evaluate mode
 
