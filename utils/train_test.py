@@ -23,7 +23,7 @@ def train(model, device, train_loader, optimizer, epoch):
 	pbar = tqdm(train_loader)
 	correct = 0
 	processed = 0
-	criterion=criterion.to(device)
+	criterion=nn.NLLLoss().to(device)
 	
 	for batch_idx, (data, target) in enumerate(pbar):
 		# get samples
@@ -39,7 +39,7 @@ def train(model, device, train_loader, optimizer, epoch):
 
 		# Calculate loss
 		
-		loss  = nn.NLLLoss(y_pred, target)
+		loss  = criterion(y_pred, target)
 		
 
 		train_losses.append(loss)
