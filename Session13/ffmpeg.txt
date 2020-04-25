@@ -1,0 +1,10 @@
+download from https://www.ffmpeg.org/download.html
+
+
+Frames to video:
+ffmpeg -start_number 1700 -i image-%04d.jpg bb8_detection.mp4
+
+
+Video to Frames:
+ffmpeg -i StarWarsDroidsAtTheOscars.mp4 Images_out/image-%04d.jpg
+
