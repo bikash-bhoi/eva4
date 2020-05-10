@@ -13,7 +13,7 @@ https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 | Depth Output | depth_output.zip | Jpg | 424320 | 112x112 | 764 MB | [0.0878] | [0.0157] |
 
 
-## 2. Dataset
+## 3. Dataset
 
 Background (bg)  Count : 102:
 ![bg](https://github.com/deepakgowtham/EVA4/blob/master/Week14/Images/bg.png)
