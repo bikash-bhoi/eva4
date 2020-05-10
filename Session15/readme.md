@@ -55,5 +55,5 @@ Depth Map generated (depth) Count : 424320 :
 ### 4.how did you create your depth images? 
 #### A: Depth images were created using the DenseDepth model using kitti weights. <br>Source : https://github.com/ialhashim/DenseDepth.git <br> the images were stored as one channel only.<br> Code: https://github.com/deepakgowtham/EVA4/blob/master/Week14/Session15A_Mask_RCNN_Depth.ipynb
 
-## Statistics generation Notebook : 
+## 5. Statistics generation Notebook : 
 ### https://github.com/deepakgowtham/EVA4/blob/master/Week14/Session15A_Mask_RCNN_Depth.ipynb
