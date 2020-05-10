@@ -13,60 +13,6 @@ https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 | Depth Output | depth_output.zip | Jpg | 424320 | 112x112 | 764 MB | [0.0878] | [0.0157] |
 
 
-#### Background
-- Folder_Name: bg
-- Type: Jpg
-- Count: 102
-- Image_Size: 224x224
-- Datafolder_size: 1.02MB
-
-#### Foreground
-- Folder_Name: fg
-- Type: png
-- Count: 104
-- Image_Size: Varying size from 90x90 to 160x160
-- Datafolder_size: 2.25MB
-
-#### Foreground Mask
-
-- Folder_Name: Cars_Mask
-- Type: png
-- Count: 104
-- Image_Size: Varying size from 90x90 to 160x160
-- Datafolder_size: 102KB
-
-#### Foreground over Background
-
-- File_Name: fg_bg.zip
-- Type: Jpg
-- Count: 424320
-- Image_Size: 224*224
-- Datafolder_size: 7GB
-- Mean: [0.3931, 0.3785, 0.3606]
-- Std: [0.1965, 0.1813, 0.1779]
-
-#### Foreground over Background Mask
-
-- File_Name: fg_bg_mask.zip
-- Type: Jpg
-- Count: 424320
-- Image_Size: 224*224
-- Datafolder_size: 2GB
-- Mean: [0.1630]
-- Std: [0.3598]
-
-
-#### Depth Output
-
-- File_Name: depth_output.zip
-- Type: Jpg
-- Count: 424320
-- Image_Size: 224x224
-- Datafolder_size: 764MB
-- Mean: [0.0878]
-- Std: [0.0157]
-
-
 ## 2. Dataset
 
 Background (bg)  Count : 102:
