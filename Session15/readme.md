@@ -26,4 +26,12 @@ Depth Map generated (depth) Count : 424320 :
 ![depth](https://github.com/bikash-bhoi/eva4/blob/master/Session15/images/depth.png)
 
 ## Dataset Statistics
+1. BG
+  A. Type : JPG 
+  B. size of images : 224x224
+ 
+(fg, bg, fg_bg, masks, depth)
+Total images of each kind
+The total size of the dataset
+Mean/STD values for your fg_bg, masks and depth images
 
