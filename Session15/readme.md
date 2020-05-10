@@ -1,7 +1,7 @@
-## Dataset Drive Link (fg, bg, fg_masks in folder, fg_bg, fg_bg_mask, depth images zipped in the folder)
+## 1. Dataset Drive Link (fg, bg, fg_masks in folder, fg_bg, fg_bg_mask, depth images zipped in the folder)
 https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 
-## Dataset Statistics
+## 2. Dataset Statistics
 
 #### Background
 - Folder_Name: bg
@@ -57,7 +57,7 @@ https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 - Std: [0.0157]
 
 
-### Dataset
+## 2. Dataset
 
 Background (bg)  Count : 102:
 ![bg](https://github.com/deepakgowtham/EVA4/blob/master/Week14/Images/bg.png)
@@ -97,4 +97,7 @@ Depth Map generated (depth) Count : 424320 :
 ### 3.how did you overlay the fg over bg and created 20 variants
 #### A: For fg_bg : used openCV again to overlay the fg over bg. For every combination of fg and bg, position of the fg was randomly generated 20 times. for every random position generation, 2 fg_bg images were created, one with the fg and other with the fg LR flipped.<br> Image overlay was done using calculation of alpha value of the foreground to maintain transparency of fg over bg.<br> Code: https://github.com/deepakgowtham/EVA4/blob/master/Week14/Session15A_Mask_RCNN_CV2.ipynb
 ### 4.how did you create your depth images? 
-#### A: Depth images were created using the DenseDepth module using kitti weights. <br>Source : https://github.com/ialhashim/DenseDepth.git <br> the images were stored as one channel only.
+#### A: Depth images were created using the DenseDepth model using kitti weights. <br>Source : https://github.com/ialhashim/DenseDepth.git <br> the images were stored as one channel only.<br> Code: https://github.com/deepakgowtham/EVA4/blob/master/Week14/Session15A_Mask_RCNN_Depth.ipynb
+
+## Statistics generation Notebook : 
+###https://github.com/deepakgowtham/EVA4/blob/master/Week14/Session15A_Mask_RCNN_Depth.ipynb
