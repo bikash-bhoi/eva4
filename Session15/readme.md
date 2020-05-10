@@ -1,4 +1,4 @@
-## Drive Link
+## Dataset Drive Link (fg, bg, fg_masks in folder, fg_bg, fg_bg_mask, depth images zipped in the folder)
 https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 
 ## Dataset Statistics
@@ -20,8 +20,8 @@ https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 #### Foreground Mask
 
 - Folder_Name: Cars_Mask
-- Type: Jpg
-- Count: 102
+- Type: png
+- Count: 104
 - Image_Size: Varying size from 90x90 to 160x160
 - Datafolder_size: 102KB
 
@@ -59,8 +59,6 @@ https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 
 ### Dataset
 
-
-
 Background (bg)  Count : 102:
 ![bg](https://github.com/deepakgowtham/EVA4/blob/master/Week14/Images/bg.png)
 
@@ -88,3 +86,15 @@ Mask with same position as fg_bg (fg_bg_mask) Count : 424320 :
 
 Depth Map generated (depth) Count : 424320 :
 ![depth](https://github.com/bikash-bhoi/eva4/blob/master/Session15/images/depth.png)
+
+
+## 4. Dataset Creation Steps
+
+### 1.how were fg created with transparency
+#### A: fg transparency was created using Gimp. Magic wand tool was used to select the fg and rest were deleted
+### 2.how were masks created for fgs
+#### A: Masks were created using OpenCV library. For the FGs where the pixel value was transparent, it was marked black and wherever pixel value was >=1 it was assigned white in the mask image. <br>Code: https://github.com/deepakgowtham/EVA4/blob/master/Week14/Session15A_Mask_RCNN_CV2.ipynb
+### 3.how did you overlay the fg over bg and created 20 variants
+#### A: For fg_bg : used openCV again to overlay the fg over bg. For every combination of fg and bg, position of the fg was randomly generated 20 times. for every random position generation, 2 fg_bg images were created, one with the fg and other with the fg LR flipped.<br> Image overlay was done using calculation of alpha value of the foreground to maintain transparency of fg over bg.<br> Code: https://github.com/deepakgowtham/EVA4/blob/master/Week14/Session15A_Mask_RCNN_CV2.ipynb
+### 4.how did you create your depth images? 
+#### A: Depth images were created using the DenseDepth module using kitti weights. <br>Source : https://github.com/ialhashim/DenseDepth.git <br> the images were stored as one channel only.
