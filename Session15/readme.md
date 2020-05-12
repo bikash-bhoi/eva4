@@ -9,7 +9,7 @@ https://drive.google.com/open?id=1aXOUCyBZn8fL2mL037g7TvYvuTsj7rfg
 | Foreground | fg | png | 104 | Varying size from 90x90X4 to 160x160X4 | 2.25 MB |  |   |
 | Foreground Mask | Cars_Mask | png | 104 | Varying size from 90x90X4 to 160x160X4 | 102 KB |  |   |
 | Foreground over Background | fg_bg.zip | Jpg | 424320 | 224x224X3 | 7 GB | [0.3931, 0.3785, 0.3606] | [0.1965, 0.1813, 0.1779] |
-| Foreground over Background Mask | fg_bg_mask.zip | Jpg | 424320 | 224x224X3 | 2 GB | [0.1630] | [0.3598] |
+| Foreground over Background Mask | fg_bg_mask.zip | Jpg | 424320 | 224x224X1 | 2 GB | [0.1630] | [0.3598] |
 | Depth Output | depth_output.zip | Jpg | 424320 | 224x224X1 | 764 MB | [0.0878] | [0.0157] |
 
 
