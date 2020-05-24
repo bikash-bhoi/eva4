@@ -38,6 +38,7 @@
 
 ## Output:
 - Training Notebook : [Here](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/EVA4_Session15_2.ipynb)
+- Supporting Modules : [Here](https://drive.google.com/drive/folders/1I-7MRRlyvf6qyAeVns6D2vfhwa8_dvQn?usp=sharing)
 - The outputs obtained are not so great . below are the outputs at the end of # of epochs with RMSE.
 - Models were trained with 32x32 images for first 10 epochs and with 64x64 with later 10 epochs. 64x64 demanded a lesser Batch size increasing the training time.
 - Loss function used : CosineSimilarity
