@@ -27,7 +27,14 @@
 
 ## Models Chosen :
 - Depth Prediction: Resnet50 with strided convolution for up-projection, Number of parameters: 
+<br>Total params: 67,569,473
+<br>Trainable params: 67,569,473
+<br>Non-trainable params: 0
+
 - Mask Prediction : Auto Encoder Decoder, Number of parameters : 
+<br>Total params: 16,393,752
+<br>Trainable params: 16,393,752
+<br>Non-trainable params: 0
 
 ## Output:
 - The outputs obtained are not so great . below are the outputs at the end of # of epochs with RMSE.
