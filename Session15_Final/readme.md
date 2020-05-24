@@ -68,5 +68,4 @@
 ### Link to train log [here](https://drive.google.com/file/d/1P7L8cEYY1BFPG7gx22mF_6VsYT2sM_qn/view?usp=sharing)
 
 
-## Issues faced
 
