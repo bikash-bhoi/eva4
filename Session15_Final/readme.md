@@ -1,6 +1,6 @@
 ## Problem Description:
 -  Assignment description :
--   Given an image with foreground objects and background image, predict the depth map as well as a mask for the foreground object. 
+  -  Given an image with foreground objects and background image, predict the depth map as well as a mask for the foreground object. 
 
 ## Creating Dataset:
 -  Created the dataset of ~400k images by overlaying multiple foreground on top of multiple background images. The dataset creation steps and stats [here](https://github.com/bikash-bhoi/eva4/tree/master/Session15).
@@ -31,8 +31,21 @@
 
 ## Output:
 - The outputs obtained are not so great . below are the outputs at the end of # of epochs with RMSE.
-### Epoch 5 (RMSE : 0.18184852525797063)
+- Models were trained with 32x32 images for first 10 epochs and with 64x64 with later 10 epochs. 64x64 demanded a lesser Batch size increasing the training time.
+- Loss function used : CosineSimilarity
+- Accuracy calculation : RMSE of pixel values between predicted Depth and ground Truth. Pixel Values range : [0,1]
+- 
 
+### Epoch 5 (RMSE : 0.18184852525797063)
+![mask](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/mask_0_4.jpg) ![depth](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/depth_0_4.jpg)
 ### Epoch 10 (RMSE : 0.17910172811893638)
+![mask](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/mask_5_9.jpg) ![depth](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/depth_5_9.jpg)
 ### Epoch 15 (RMSE : 0.05212091282534608)
-### Epoch 20 (RMSE : 0.18184852525797063)
+![mask](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/mask_10_14.jpg) ![depth](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/depth_10_14.jpg)
+### Epoch 20 (RMSE : 0.04344806143256287)
+![mask](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/mask_15_19.jpg) ![depth](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/depth_15_19.jpg)
+### Link to train log [here](https://drive.google.com/file/d/1P7L8cEYY1BFPG7gx22mF_6VsYT2sM_qn/view?usp=sharing)
+
+
+## Issues faced
+
