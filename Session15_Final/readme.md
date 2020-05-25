@@ -66,6 +66,11 @@
 ![Original Mask](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/original_mask.jpg)
 ![mask](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/mask_15_19.jpg) ![depth](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/depth_15_19.jpg)
 ### Link to train log [here](https://drive.google.com/file/d/1P7L8cEYY1BFPG7gx22mF_6VsYT2sM_qn/view?usp=sharing)
+### RMSE plot
+![plot](https://github.com/bikash-bhoi/eva4/blob/master/Session15_Final/output_images/plot.jpg)
 
+## References:
+- Paper : Junjie Hu, Yan Zhang, Takayuki Okatani, "Visualization of Convolutional Neural Networks for Monocular Depth Estimation," ICCV, 2019 was used source : [Paper Link](http://openaccess.thecvf.com/content_ICCV_2019/papers/Hu_Visualization_of_Convolutional_Neural_Networks_for_Monocular_Depth_Estimation_ICCV_2019_paper.pdf)
 
+- Code : Customized the code from this repo from above paper [Github Link](https://github.com/JunjH/Visualizing-CNNs-for-monocular-depth-estimation)
 
